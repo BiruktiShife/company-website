@@ -12,21 +12,21 @@ import {
 
 const teamMembers = [
   {
-    name: "Yoseph Desta",
+    name: " Alice Johnson",
     role: "Managing Partner",
     image:
       "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     href: "/team/yoseph-desta",
   },
   {
-    name: "Sarah Haile",
+    name: " Sophia Brown",
     role: "Senior Partner",
     image:
       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     href: "/team/sarah-haile",
   },
   {
-    name: "Michael Tekle",
+    name: "Michael Smith",
     role: "Partner",
     image:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
@@ -71,17 +71,17 @@ const practiceAreas = [
   {
     title: "Accepted",
     color: "green",
-    users: ["Alice Johnson", "Michael Smith", "Sophia Brown"],
+    users: ["Yoseph Desta", "Abera Tadele", "Tolosa Wakisa", "Mahlet Haile"],
   },
   {
     title: "Pending",
     color: "yellow",
-    users: ["Daniel Lee", "Emily Clark"],
+    users: ["Temesgen Mebratu", "Helen Amare"],
   },
   {
     title: "Rejected",
     color: "red",
-    users: ["Chris Evans", "Natalie White"],
+    users: ["Yakob Degu", "Alemitu Belachew"],
   },
 ];
 export function TeamOverview() {
