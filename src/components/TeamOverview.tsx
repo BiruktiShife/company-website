@@ -241,7 +241,7 @@ export function TeamOverview() {
           ${area.color === "yellow" ? "bg-yellow-200 text-yellow-800" : ""} 
           ${area.color === "red" ? "bg-red-200 text-red-800" : ""}`}
                 >
-                  {area.users.length} Users
+                  {area.users.length} Applicants
                 </span>
               </div>
 
@@ -272,7 +272,7 @@ export function TeamOverview() {
                     </li>
                   ))
                 ) : (
-                  <li className="text-gray-500 italic">No users</li>
+                  <li className="text-gray-500 italic">No Applicants</li>
                 )}
               </ul>
             </div>
