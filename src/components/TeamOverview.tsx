@@ -1,14 +1,6 @@
+"use client";
 import { Link } from "react-router-dom";
-import {
-  Scale,
-  Briefcase,
-  Users,
-  Building,
-  FileText,
-  Shield,
-  Gavel,
-  BookOpen,
-} from "lucide-react";
+import { useState } from "react";
 
 const teamMembers = [
   {
@@ -67,24 +59,42 @@ const stats = [
   },
 ];
 
-const practiceAreas = [
+const acceptedUsers = [
   {
-    title: "Accepted",
-    color: "green",
-    users: ["Yoseph Desta", "Abera Tadele", "Tolosa Wakisa", "Mahlet Haile"],
+    name: "Yosef Desta",
+    age: 29,
+    phone: "Private",
+    passport: "A1234567",
+    location: "New York, USA",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
   },
   {
-    title: "Pending",
-    color: "yellow",
-    users: ["Temesgen Mebratu", "Helen Amare"],
+    name: "Abera Tadele",
+    age: 34,
+    phone: "Private",
+    passport: "B7654321",
+    location: "Toronto, Canada",
+    image: "https://randomuser.me/api/portraits/men/46.jpg",
   },
   {
-    title: "Rejected",
-    color: "red",
-    users: ["Yakob Degu", "Alemitu Belachew"],
+    name: "Tolosa Wakisa",
+    age: 34,
+    phone: "Private",
+    passport: "B7654321",
+    location: "Toronto, Canada",
+    image: "https://randomuser.me/api/portraits/men/46.jpg",
+  },
+  {
+    name: "Mahlet Haile",
+    age: 34,
+    phone: "Private",
+    passport: "B7654321",
+    location: "Toronto, Canada",
+    image: "https://randomuser.me/api/portraits/men/46.jpg",
   },
 ];
 export function TeamOverview() {
+  const [selectedUser, setSelectedUser] = useState<any>(null);
   return (
     <section className="py-8 sm:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -216,67 +226,99 @@ export function TeamOverview() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {practiceAreas.map((area) => (
-            <div
-              key={area.title}
-              className={`group p-6 rounded-2xl shadow-lg border-2 transition-all duration-300 
-      hover:scale-[1.02] bg-gradient-to-br 
-      ${area.color === "green" ? "from-green-50 to-green-100 border-green-300 hover:border-green-500" : ""}
-      ${area.color === "yellow" ? "from-yellow-50 to-yellow-100 border-yellow-300 hover:border-yellow-500" : ""}
-      ${area.color === "red" ? "from-red-50 to-red-100 border-red-300 hover:border-red-500" : ""}`}
-            >
-              {/* Header */}
-              <div className="flex items-center justify-between mb-4">
-                <h3
-                  className={`text-xl font-bold 
-          ${area.color === "green" ? "text-green-700" : ""} 
-          ${area.color === "yellow" ? "text-yellow-700" : ""} 
-          ${area.color === "red" ? "text-red-700" : ""}`}
-                >
-                  {area.title}
-                </h3>
-                <span
-                  className={`px-3 py-1 rounded-full text-xs font-semibold 
-          ${area.color === "green" ? "bg-green-200 text-green-800" : ""} 
-          ${area.color === "yellow" ? "bg-yellow-200 text-yellow-800" : ""} 
-          ${area.color === "red" ? "bg-red-200 text-red-800" : ""}`}
-                >
-                  {area.users.length} Applicants
-                </span>
-              </div>
-
-              {/* User List */}
-              <ul className="space-y-2">
-                {area.users.length > 0 ? (
-                  area.users.map((user, index) => (
-                    <li
-                      key={index}
-                      className="flex items-center bg-white/70 rounded-lg px-3 py-2 shadow-sm hover:shadow-md transition"
-                    >
-                      <svg
-                        className={`w-4 h-4 mr-2 
-                ${area.color === "green" ? "text-green-600" : ""} 
-                ${area.color === "yellow" ? "text-yellow-600" : ""} 
-                ${area.color === "red" ? "text-red-600" : ""}`}
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          d="M16.707 5.293a1 1 0 00-1.414 0L9 
-                11.586 6.707 9.293a1 1 0 10-1.414 
-                1.414l3 3a1 1 0 001.414 0l7-7a1 
-                1 0 000-1.414z"
-                        />
-                      </svg>
-                      <span className="text-gray-800 font-medium">{user}</span>
-                    </li>
-                  ))
-                ) : (
-                  <li className="text-gray-500 italic">No Applicants</li>
-                )}
-              </ul>
+          {/* ✅ Accepted Card */}
+          <div className="p-6 rounded-2xl shadow-lg border-2 from-green-50 to-green-100 border-green-300 bg-gradient-to-br hover:border-green-500 transition-all duration-300 hover:scale-[1.02]">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xl font-bold text-green-700">Accepted</h3>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-200 text-green-800">
+                {acceptedUsers.length} Applicants
+              </span>
             </div>
-          ))}
+
+            <ul className="space-y-3">
+              {acceptedUsers.map((user, index) => (
+                <li
+                  key={index}
+                  onClick={() => setSelectedUser(user)}
+                  className="flex items-center p-2 bg-white rounded-lg shadow-sm hover:shadow-md cursor-pointer transition"
+                >
+                  <img
+                    src={user.image}
+                    alt={user.name}
+                    className="w-10 h-10 rounded-full mr-3 border"
+                  />
+                  <span className="text-gray-800 font-medium">{user.name}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* ⏳ Pending Card */}
+          <div className="p-6 rounded-2xl shadow-lg border-2 from-yellow-50 to-yellow-100 border-yellow-300 bg-gradient-to-br hover:border-yellow-500 transition-all duration-300 hover:scale-[1.02]">
+            <div className="flex items-center justify-between">
+              <h3 className="text-xl font-bold text-yellow-700">Pending</h3>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-yellow-200 text-yellow-800">
+                122 Applicants
+              </span>
+            </div>
+          </div>
+
+          {/* ❌ Rejected Card */}
+          <div className="p-6 rounded-2xl shadow-lg border-2 from-red-50 to-red-100 border-red-300 bg-gradient-to-br hover:border-red-500 transition-all duration-300 hover:scale-[1.02]">
+            <div className="flex items-center justify-between">
+              <h3 className="text-xl font-bold text-red-700">Rejected</h3>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-red-200 text-red-800">
+                234 Applicants
+              </span>
+            </div>
+          </div>
+
+          {/* Modal for Accepted Users */}
+          {selectedUser && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+              <div className="bg-white p-6 rounded-xl shadow-xl max-w-sm w-full relative">
+                <button
+                  onClick={() => setSelectedUser(null)}
+                  className="absolute top-2 right-2 text-gray-500 hover:text-red-500"
+                >
+                  ✕
+                </button>
+
+                <div className="text-center">
+                  <img
+                    src={selectedUser.image}
+                    alt={selectedUser.name}
+                    className="w-20 h-20 rounded-full mx-auto mb-3 border"
+                  />
+                  <h2 className="text-lg font-bold text-gray-900">
+                    {selectedUser.name}
+                  </h2>
+                  <p className="text-sm text-gray-500">
+                    {selectedUser.location}
+                  </p>
+                </div>
+
+                <div className="mt-4 space-y-2 text-sm text-gray-700">
+                  <p>
+                    <span className="font-semibold">Age:</span>{" "}
+                    {selectedUser.age}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Phone:</span>{" "}
+                    {selectedUser.phone}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Passport:</span>{" "}
+                    {selectedUser.passport}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Location:</span>{" "}
+                    {selectedUser.location}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>
