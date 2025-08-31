@@ -32,20 +32,20 @@ const teamMembers = [
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     href: "/team/michael-tekle",
   },
-  {
-    name: "Rebecca Alemayehu",
-    role: "Senior Associate",
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    href: "/team/rebecca-alemayehu",
-  },
-  {
-    name: "Daniel Mekonnen",
-    role: "Associate",
-    image:
-      "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    href: "/team/daniel-mekonnen",
-  },
+  // {
+  //   name: "Rebecca Alemayehu",
+  //   role: "Senior Associate",
+  //   image:
+  //     "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  //   href: "/team/rebecca-alemayehu",
+  // },
+  // {
+  //   name: "Daniel Mekonnen",
+  //   role: "Associate",
+  //   image:
+  //     "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  //   href: "/team/daniel-mekonnen",
+  // },
 ];
 
 const stats = [
@@ -69,61 +69,21 @@ const stats = [
 
 const practiceAreas = [
   {
-    icon: Scale,
-    title: "Commercial Litigation",
-    description:
-      "Expert representation in complex business disputes and commercial conflicts.",
-    href: "/services/commercial-litigation",
+    title: "Accepted",
+    color: "green",
+    users: ["Alice Johnson", "Michael Smith", "Sophia Brown"],
   },
   {
-    icon: Briefcase,
-    title: "Corporate Law",
-    description: "Comprehensive legal solutions for businesses of all sizes.",
-    href: "/services/corporate",
+    title: "Pending",
+    color: "yellow",
+    users: ["Daniel Lee", "Emily Clark"],
   },
   {
-    icon: Users,
-    title: "Family Law",
-    description:
-      "Compassionate guidance through divorce, custody, and other family matters.",
-    href: "/services/family",
-  },
-  {
-    icon: Building,
-    title: "Real Estate",
-    description:
-      "Legal expertise for property transactions, disputes, and development.",
-    href: "/services/real-estate",
-  },
-  {
-    icon: Shield,
-    title: "Intellectual Property",
-    description:
-      "Protection for your innovations, creative works, and brand identity.",
-    href: "/services/intellectual-property",
-  },
-  {
-    icon: Gavel,
-    title: "Criminal Defense",
-    description:
-      "Vigorous defense against criminal charges and investigations.",
-    href: "/services/criminal-defense",
-  },
-  {
-    icon: FileText,
-    title: "Estate Planning",
-    description:
-      "Secure your legacy and protect your assets for future generations.",
-    href: "/services/estate-planning",
-  },
-  {
-    icon: BookOpen,
-    title: "Immigration Law",
-    description: "Navigate complex immigration processes with expert guidance.",
-    href: "/services/immigration",
+    title: "Rejected",
+    color: "red",
+    users: ["Chris Evans", "Natalie White"],
   },
 ];
-
 export function TeamOverview() {
   return (
     <section className="py-8 sm:py-16 bg-white">
@@ -255,41 +215,67 @@ export function TeamOverview() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-6 sm:mt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {practiceAreas.map((area) => (
-            <Link
+            <div
               key={area.title}
-              to={area.href}
-              className="group p-4 sm:p-6 border-2 border-primary/20 rounded-lg bg-white shadow-sm hover:border-yellow-500 hover:bg-gray-50 transition-all duration-300"
+              className={`group p-6 rounded-2xl shadow-lg border-2 transition-all duration-300 
+      hover:scale-[1.02] bg-gradient-to-br 
+      ${area.color === "green" ? "from-green-50 to-green-100 border-green-300 hover:border-green-500" : ""}
+      ${area.color === "yellow" ? "from-yellow-50 to-yellow-100 border-yellow-300 hover:border-yellow-500" : ""}
+      ${area.color === "red" ? "from-red-50 to-red-100 border-red-300 hover:border-red-500" : ""}`}
             >
-              <div className="flex items-center justify-center h-12 w-12 sm:h-16 sm:w-16 rounded-full bg-primary/10 text-primary mb-3 sm:mb-4 group-hover:bg-accent/10 group-hover:text-yellow-500 transition-colors">
-                <area.icon className="h-6 w-6 sm:h-8 sm:w-8" />
-              </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 group-hover:text-yellow-500 transition-colors">
-                {area.title}
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600">
-                {area.description}
-              </p>
-              <div className="mt-3 sm:mt-4 flex items-center text-primary group-hover:text-yellow-500 transition-colors">
-                <span className="text-xs sm:text-sm font-medium">
-                  Learn more
-                </span>
-                <svg
-                  className="ml-2 w-3 h-3 sm:w-4 sm:h-4 transform group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+              {/* Header */}
+              <div className="flex items-center justify-between mb-4">
+                <h3
+                  className={`text-xl font-bold 
+          ${area.color === "green" ? "text-green-700" : ""} 
+          ${area.color === "yellow" ? "text-yellow-700" : ""} 
+          ${area.color === "red" ? "text-red-700" : ""}`}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+                  {area.title}
+                </h3>
+                <span
+                  className={`px-3 py-1 rounded-full text-xs font-semibold 
+          ${area.color === "green" ? "bg-green-200 text-green-800" : ""} 
+          ${area.color === "yellow" ? "bg-yellow-200 text-yellow-800" : ""} 
+          ${area.color === "red" ? "bg-red-200 text-red-800" : ""}`}
+                >
+                  {area.users.length} Users
+                </span>
               </div>
-            </Link>
+
+              {/* User List */}
+              <ul className="space-y-2">
+                {area.users.length > 0 ? (
+                  area.users.map((user, index) => (
+                    <li
+                      key={index}
+                      className="flex items-center bg-white/70 rounded-lg px-3 py-2 shadow-sm hover:shadow-md transition"
+                    >
+                      <svg
+                        className={`w-4 h-4 mr-2 
+                ${area.color === "green" ? "text-green-600" : ""} 
+                ${area.color === "yellow" ? "text-yellow-600" : ""} 
+                ${area.color === "red" ? "text-red-600" : ""}`}
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M16.707 5.293a1 1 0 00-1.414 0L9 
+                11.586 6.707 9.293a1 1 0 10-1.414 
+                1.414l3 3a1 1 0 001.414 0l7-7a1 
+                1 0 000-1.414z"
+                        />
+                      </svg>
+                      <span className="text-gray-800 font-medium">{user}</span>
+                    </li>
+                  ))
+                ) : (
+                  <li className="text-gray-500 italic">No users</li>
+                )}
+              </ul>
+            </div>
           ))}
         </div>
       </div>

@@ -41,14 +41,6 @@ const teamMembers = [
       "Property Rights",
     ],
   },
-  {
-    name: "Rebecca Alemayehu",
-    role: "Senior Associate",
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    bio: "Rebecca specializes in family law and probate matters, providing compassionate guidance through sensitive legal situations.",
-    expertise: ["Family Law", "Probate", "Estate Planning"],
-  },
 ];
 
 export function Team() {
