@@ -4,32 +4,25 @@ import { useState } from "react";
 
 const teamMembers = [
   {
-    name: "Industrial Refinery",
-    role: "High-capacity processing and refining facility",
+    name: "Sophia Brown",
+    role: "Quality Control Specialist",
     image:
-      "https://images.unsplash.com/photo-1581090463527-5d4a1b3f72dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    href: "/facility/refinery",
+      "https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg?auto=compress&cs=tinysrgb&w=800",
+    href: "/team/sophia-brown",
   },
   {
-    name: "Automated Assembly Line",
-    role: "Efficient robotics-driven production",
+    name: "Michael Smith",
+    role: "Operations Head",
     image:
-      "https://images.unsplash.com/photo-1581090700227-4c4c0d1b5f89?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    href: "/facility/assembly-line",
+      "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=800",
+    href: "/team/michael-smith",
   },
   {
-    name: "Manufacturing Floor",
-    role: "State-of-the-art industrial operations",
+    name: "Emily Davis",
+    role: "Factory Supervisor",
     image:
-      "https://images.unsplash.com/photo-1581092919535-9f2c71b50c8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    href: "/facility/manufacturing-floor",
-  },
-  {
-    name: "Industrial Machinery",
-    role: "Heavy-duty equipment and pipework",
-    image:
-      "https://images.unsplash.com/photo-1581091012184-5c9af7d9f9c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    href: "/facility/machinery",
+      "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800",
+    href: "/team/emily-davis",
   },
 ];
 
