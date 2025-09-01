@@ -4,65 +4,47 @@ import { useState } from "react";
 
 const teamMembers = [
   {
-    name: " Alice Johnson",
-    role: "Managing Partner",
+    name: "Industrial Refinery",
+    role: "High-capacity processing and refining facility",
     image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    href: "/team/yoseph-desta",
+      "https://images.unsplash.com/photo-1581090463527-5d4a1b3f72dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    href: "/facility/refinery",
   },
   {
-    name: " Sophia Brown",
-    role: "Senior Partner",
+    name: "Automated Assembly Line",
+    role: "Efficient robotics-driven production",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    href: "/team/sarah-haile",
+      "https://images.unsplash.com/photo-1581090700227-4c4c0d1b5f89?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    href: "/facility/assembly-line",
   },
   {
-    name: "Michael Smith",
-    role: "Partner",
+    name: "Manufacturing Floor",
+    role: "State-of-the-art industrial operations",
     image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    href: "/team/michael-tekle",
+      "https://images.unsplash.com/photo-1581092919535-9f2c71b50c8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    href: "/facility/manufacturing-floor",
   },
-  // {
-  //   name: "Rebecca Alemayehu",
-  //   role: "Senior Associate",
-  //   image:
-  //     "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-  //   href: "/team/rebecca-alemayehu",
-  // },
-  // {
-  //   name: "Daniel Mekonnen",
-  //   role: "Associate",
-  //   image:
-  //     "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-  //   href: "/team/daniel-mekonnen",
-  // },
+  {
+    name: "Industrial Machinery",
+    role: "Heavy-duty equipment and pipework",
+    image:
+      "https://images.unsplash.com/photo-1581091012184-5c9af7d9f9c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    href: "/facility/machinery",
+  },
 ];
 
 const stats = [
-  {
-    value: "500+",
-    label: "Clients Served",
-  },
-  {
-    value: "30+",
-    label: "Years of Combined Experience",
-  },
-  {
-    value: "95%",
-    label: "Success Rate",
-  },
-  {
-    value: "₭100M+",
-    label: "Recovered for Clients",
-  },
+  { value: "500+", label: "Clients Served" },
+  { value: "30+", label: "Years of Combined Experience" },
+  { value: "95%", label: "Success Rate" },
+  { value: "₭100M+", label: "Recovered for Clients" },
 ];
 
 const acceptedUsers = [
   {
     name: "Yosef Desta",
     age: 29,
+    status: "Accepted",
     phone: "Private",
     passport: "A1234567",
     location: "New York, USA",
@@ -71,6 +53,7 @@ const acceptedUsers = [
   {
     name: "Abera Tadele",
     age: 34,
+    status: "Accepted",
     phone: "Private",
     passport: "B7654321",
     location: "Toronto, Canada",
@@ -79,26 +62,30 @@ const acceptedUsers = [
   {
     name: "Tolosa Wakisa",
     age: 34,
+    status: "Accepted",
     phone: "Private",
     passport: "B7654321",
     location: "Toronto, Canada",
-    image: "https://randomuser.me/api/portraits/men/46.jpg",
+    image: "https://randomuser.me/api/portraits/men/22.jpg",
   },
   {
     name: "Mahlet Haile",
     age: 34,
+    status: "Accepted",
     phone: "Private",
     passport: "B7654321",
     location: "Toronto, Canada",
-    image: "https://randomuser.me/api/portraits/men/46.jpg",
+    image: "https://randomuser.me/api/portraits/women/68.jpg",
   },
 ];
+
 export function TeamOverview() {
   const [selectedUser, setSelectedUser] = useState<any>(null);
+
   return (
     <section className="py-8 sm:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title Card with Background Image */}
+        {/* Title Section */}
         <div className="relative mb-8 sm:mb-12 p-6 sm:p-10 rounded-xl shadow-lg text-center overflow-hidden">
           <div className="absolute inset-0">
             <img
@@ -119,24 +106,20 @@ export function TeamOverview() {
           </div>
         </div>
 
+        {/* Stats + Description */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 items-start mb-8 sm:mb-16">
-          {/* Description Card */}
-          <div>
-            <div className="p-6 sm:p-8 border-2 border-yellow-500 rounded-lg bg-white shadow-sm hover:border-primary/40 transition-colors">
-              <h3 className="text-lg sm:text-xl font-semibold text-primary mb-4">
-                Dedicated Legal Excellence
-              </h3>
-              <p className="text-base sm:text-lg text-gray-600">
-                At Yoseph Desta Law Office, our team of highly skilled and
-                experienced attorneys is committed to providing top-tier legal
-                services across various practice areas. We leverage cutting-edge
-                technology to streamline legal processes, ensuring efficient,
-                accurate, and cost-effective solutions for our clients.
-              </p>
-            </div>
+          <div className="p-6 sm:p-8 border-2 border-yellow-500 rounded-lg bg-white shadow-sm hover:border-primary/40 transition-colors">
+            <h3 className="text-lg sm:text-xl font-semibold text-primary mb-4">
+              Dedicated Legal Excellence
+            </h3>
+            <p className="text-base sm:text-lg text-gray-600">
+              At Yoseph Desta Law Office, our team of highly skilled and
+              experienced attorneys is committed to providing top-tier legal
+              services across various practice areas. We leverage cutting-edge
+              technology to streamline legal processes, ensuring efficient,
+              accurate, and cost-effective solutions for our clients.
+            </p>
           </div>
-
-          {/* Stats Grid */}
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
             {stats.map((stat, index) => (
               <div
@@ -181,52 +164,9 @@ export function TeamOverview() {
           ))}
         </div>
 
-        <div className="mt-8 sm:mt-12 text-center">
-          <Link
-            to="/team"
-            className="inline-flex items-center text-yellow-500 hover:text-accent-hover font-semibold text-sm sm:text-base"
-          >
-            View All Team Members
-            <svg
-              className="ml-2 w-4 h-4 sm:w-5 sm:h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </Link>
-        </div>
-
-        {/* Our Practice Areas Section with Background Image */}
-        <div className="mt-16 sm:mt-24 relative overflow-hidden rounded-lg">
-          <div className="absolute inset-0">
-            <img
-              src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-              alt="Legal practice areas background"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-secondary/80 mix-blend-multiply"></div>
-          </div>
-          <div className="relative z-10 p-6 sm:p-8">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Our Practice Areas
-            </h2>
-            <div className="w-24 sm:w-32 h-1 bg-yellow-500 mb-4 sm:mb-6"></div>
-            <p className="text-base sm:text-lg text-gray-200">
-              Comprehensive legal expertise to address your most complex
-              challenges
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {/* ✅ Accepted Card */}
+        {/* Accepted / Pending / Rejected */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+          {/* ✅ Accepted */}
           <div className="p-6 rounded-2xl shadow-lg border-2 from-green-50 to-green-100 border-green-300 bg-gradient-to-br hover:border-green-500 transition-all duration-300 hover:scale-[1.02]">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-xl font-bold text-green-700">Accepted</h3>
@@ -242,18 +182,28 @@ export function TeamOverview() {
                   onClick={() => setSelectedUser(user)}
                   className="flex items-center p-2 bg-white rounded-lg shadow-sm hover:shadow-md cursor-pointer transition"
                 >
-                  <img
-                    src={user.image}
-                    alt={user.name}
-                    className="w-10 h-10 rounded-full mr-3 border"
-                  />
-                  <span className="text-gray-800 font-medium">{user.name}</span>
+                  <div className="relative">
+                    <img
+                      src={user.image}
+                      alt={user.name}
+                      className="w-10 h-10 rounded-full mr-3 border"
+                    />
+                    {/* ✅ Green Active Dot */}
+                    <span className="absolute bottom-0 right-0 block w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+                  </div>
+                  <div>
+                    <p className="text-gray-800 font-medium">{user.name}</p>
+                    {/* ✅ Accepted Text */}
+                    <p className="text-xs text-green-600 font-semibold">
+                      Accepted
+                    </p>
+                  </div>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* ⏳ Pending Card */}
+          {/* ⏳ Pending */}
           <div className="p-6 rounded-2xl shadow-lg border-2 from-yellow-50 to-yellow-100 border-yellow-300 bg-gradient-to-br hover:border-yellow-500 transition-all duration-300 hover:scale-[1.02]">
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-bold text-yellow-700">Pending</h3>
@@ -263,63 +213,67 @@ export function TeamOverview() {
             </div>
           </div>
 
-          {/* ❌ Rejected Card */}
+          {/* ❌ Rejected */}
           <div className="p-6 rounded-2xl shadow-lg border-2 from-red-50 to-red-100 border-red-300 bg-gradient-to-br hover:border-red-500 transition-all duration-300 hover:scale-[1.02]">
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-bold text-red-700">Rejected</h3>
               <span className="px-3 py-1 rounded-full text-xs font-semibold bg-red-200 text-red-800">
-                234 Applicants
+                4340 Applicants
               </span>
             </div>
           </div>
+        </div>
 
-          {/* Modal for Accepted Users */}
-          {selectedUser && (
-            <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-              <div className="bg-white p-6 rounded-xl shadow-xl max-w-sm w-full relative">
-                <button
-                  onClick={() => setSelectedUser(null)}
-                  className="absolute top-2 right-2 text-gray-500 hover:text-red-500"
-                >
-                  ✕
-                </button>
+        {/* Modal for Accepted Users */}
+        {selectedUser && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+            <div className="bg-white p-6 rounded-xl shadow-xl max-w-sm w-full relative">
+              <button
+                onClick={() => setSelectedUser(null)}
+                className="absolute top-2 right-2 text-gray-500 hover:text-red-500"
+              >
+                ✕
+              </button>
 
-                <div className="text-center">
+              <div className="text-center">
+                <div className="relative inline-block">
                   <img
                     src={selectedUser.image}
                     alt={selectedUser.name}
-                    className="w-20 h-20 rounded-full mx-auto mb-3 border"
+                    className="w-20 h-20 rounded-full mx-auto mb-3 border-2 border-green-500"
                   />
-                  <h2 className="text-lg font-bold text-gray-900">
-                    {selectedUser.name}
-                  </h2>
-                  <p className="text-sm text-gray-500">
-                    {selectedUser.location}
-                  </p>
+                  {/* Green dot in modal too */}
+                  <span className="absolute bottom-2 right-0 block w-4 h-4 bg-green-500 border-2 border-white rounded-full"></span>
                 </div>
+                <h2 className="text-lg font-bold text-gray-900">
+                  {selectedUser.name}
+                </h2>
+                <p className="text-sm text-green-600 font-semibold">Accepted</p>
+                <p className="text-sm text-gray-500 mt-1">
+                  {selectedUser.location}
+                </p>
+              </div>
 
-                <div className="mt-4 space-y-2 text-sm text-gray-700">
-                  <p>
-                    <span className="font-semibold">Age:</span>{" "}
-                    {selectedUser.age}
-                  </p>
-                  <p>
-                    <span className="font-semibold">Phone:</span>{" "}
-                    {selectedUser.phone}
-                  </p>
-                  <p>
-                    <span className="font-semibold">Passport:</span>{" "}
-                    {selectedUser.passport}
-                  </p>
-                  <p>
-                    <span className="font-semibold">Location:</span>{" "}
-                    {selectedUser.location}
-                  </p>
-                </div>
+              <div className="mt-4 space-y-2 text-sm text-gray-700">
+                <p>
+                  <span className="font-semibold">Age:</span> {selectedUser.age}
+                </p>
+                <p>
+                  <span className="font-semibold">Phone:</span>{" "}
+                  {selectedUser.phone}
+                </p>
+                <p>
+                  <span className="font-semibold">Passport:</span>{" "}
+                  {selectedUser.passport}
+                </p>
+                <p>
+                  <span className="font-semibold">Location:</span>{" "}
+                  {selectedUser.location}
+                </p>
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </section>
   );
