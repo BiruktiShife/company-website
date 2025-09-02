@@ -35,40 +35,58 @@ const stats = [
 
 const acceptedUsers = [
   {
-    name: "Yosef Desta",
-    age: 29,
+    name: "Jilo Bude",
+    age: "Male",
     status: "Accepted",
     phone: "Private",
-    passport: "A1234567",
-    location: "New York, USA",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    passport: "EQ2791985",
+    location: "Ethiopia",
+    image: "/photo1.jpg",
   },
   {
-    name: "Abera Tadele",
-    age: 34,
+    name: "Abenet Hamole",
+    age: "Male",
     status: "Accepted",
     phone: "Private",
-    passport: "B7654321",
-    location: "Toronto, Canada",
-    image: "https://randomuser.me/api/portraits/men/46.jpg",
+    passport: "EQ2767950",
+    location: "Ethiopia",
+    image: "/photo2.jpg",
   },
   {
-    name: "Tolosa Wakisa",
-    age: 34,
+    name: "Tolashe Ararso",
+    age: "Female",
     status: "Accepted",
     phone: "Private",
-    passport: "B7654321",
-    location: "Toronto, Canada",
-    image: "https://randomuser.me/api/portraits/men/22.jpg",
+    passport: "EQ1694475",
+    location: "Ethiopia",
+    image: "/photo3.jpg",
   },
   {
-    name: "Mahlet Haile",
-    age: 34,
+    name: "Eshetu Demise",
+    age: "Male",
     status: "Accepted",
     phone: "Private",
-    passport: "B7654321",
-    location: "Toronto, Canada",
-    image: "https://randomuser.me/api/portraits/women/68.jpg",
+    passport: "EQ1711244",
+    location: "Ethiopia",
+    image: "/photo4.jpg",
+  },
+  {
+    name: "Muhammed Abdurahaman",
+    age: "Male",
+    status: "Accepted",
+    phone: "Private",
+    passport: "EP6539953",
+    location: "Ethiopia",
+    image: "/photo5.jpg",
+  },
+  {
+    name: "Adane Eticha",
+    age: "Male",
+    status: "Accepted",
+    phone: "Private",
+    passport: "EQ1714119",
+    location: "Ethiopia",
+    image: "/photo6.jpg",
   },
 ];
 
@@ -249,7 +267,7 @@ export function TeamOverview() {
 
               <div className="mt-4 space-y-2 text-sm text-gray-700">
                 <p>
-                  <span className="font-semibold">Age:</span> {selectedUser.age}
+                  <span className="font-semibold">Sex:</span> {selectedUser.age}
                 </p>
                 <p>
                   <span className="font-semibold">Phone:</span>{" "}
