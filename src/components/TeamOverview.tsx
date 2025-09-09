@@ -89,13 +89,13 @@ const acceptedUsers = [
     image: "/ph6.jpg",
   },
   {
-    name: "Seyfu Bedru",
-    age: "Male",
+    name: "Mekdes Damtew",
+    age: "Female",
     status: "Accepted",
     phone: "Private",
-    passport: "EP8798948",
+    passport: "EQ16811202",
     location: "Ethiopia",
-    image: "/ph7.jpg",
+    image: "/ph8.jpg",
   },
 ];
 
